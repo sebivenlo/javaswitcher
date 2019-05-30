@@ -1,0 +1,5 @@
+alias j8='eval $(J8)'
+alias j9='eval $(J9)'
+alias j10='eval $(J10)'
+alias j11='eval $(J11)'
+alias j12='eval $(J12)'

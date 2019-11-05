@@ -11,7 +11,7 @@ enable java13 and go back with e.g. `j11` to the current LTS, java 11.
 
 ## Prerequisites
 
-* You install you java versions in some default location, such as `/usr/lib/jvm` under Ubuntu
+* You install your Java versions in some default location, such as `/usr/lib/jvm` under Ubuntu
   or Debian. Your millage may vary on other unixes. With some tweaks it may work under OS-X or even bash or git-bash on windows.
   It should not interfere with you IDE, but does better: when you are used to start the IDE from the command line in the directory where
   are, then in particular NetBeans-IDE will kindly follow whatever setting you have choosen.

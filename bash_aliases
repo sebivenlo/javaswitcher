@@ -1,5 +1,6 @@
-alias j8='eval $(J8)'
-alias j9='eval $(J9)'
-alias j10='eval $(J10)'
-alias j11='eval $(J11)'
-alias j12='eval $(J12)'
+alias j13='eval $(_setJava java13)'
+alias j12='eval $(_setJava java12)'
+alias j11='eval $(_setJava java11)'
+alias j8='eval $(_setJava java8)'
+alias graalvm='eval $(_setJava graalvm)'
+

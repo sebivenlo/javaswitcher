@@ -6,10 +6,15 @@ Java is moving at a fast pace.
 You may want to easily switch between version and are not afraid to use the command line.
 Then this javaswitcher might be helpful.
 
+This tiny utility will allow you to switch between java versions by simply typing something like `j13` to
+enable java13 and go back with e.g. `j11` to the current LTS, java 11.
+
 ## Prerequisites
 
-* You install you java versions in some default location, such as `/usr/lib/jvm` under ubuntu
- or debian.
+* You install you java versions in some default location, such as `/usr/lib/jvm` under Ubuntu
+  or Debian. Your millage may vary on other unixes. With some tweaks it may work under OS-X or even bash or git-bash on windows.
+  It should not interfere with you IDE, but does better: when you are used to start the IDE from the command line in the directory where
+  are, then in particular NetBeans-IDE will kindly follow whatever setting you have choosen.
 * You add the versions and actual installations to the file `/usr/lib/jvm/javaversions.conf`.
 
 Example contents (as of 2019-11-05 on my machine):

@@ -64,7 +64,13 @@ fi
 NJAVA_HOME=${jvmdir}/${thisjava}
 
 ## edit path to use the new java_home
-p=$(echo $OPATH | sed -e "s@${JAVA_HOME}/bin@${NJAVA_HOME}/bin@")
+if [ $(echo $PATH | grep -q /jvm/) ] ; then
+    # assume some java is in path
+    p=$(echo $OPATH | sed -e "s@${JAVA_HOME}/bin@${NJAVA_HOME}/bin@")
+else
+    # prepend
+    p="${NJAVA_HOME}/bin:${PATH}"
+fi
 
 ## output modified env variables.
 echo export JAVA_HOME=$NJAVA_HOME

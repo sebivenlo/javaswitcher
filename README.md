@@ -28,6 +28,11 @@ graal11=graalvm-ce-java11-19.3.0
 default=java8
 ```
 
+* Add the the script from the `bin` directory called `_setJava` to your PATH, by either copying it +
+  to your personal bin (easiest) or to e.g. `/usr/bin` to make it effective system wide.
+* Add a few aliases to your personal aliases, either by adding to your `~/.bashrc` file or (better) to the `.bash_aliases` file
+  you might already have.
+
 ## How to add a java version installations
 
 You best install a new jdk in the simplest way possible: Download the zip or tar.gz from the

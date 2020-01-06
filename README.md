@@ -20,11 +20,11 @@ enable java13 and go back with e.g. `j11` to the current LTS, java 11.
 Example contents (as of 2019-11-05 on my machine):
 
 ```
-java8=jdk8u212-b03
-java11=jdk-11.0.3
+java8=jdk8u232-b09
+java11=jdk-11.0.5+10
 java13=jdk-13.0.1
-graalvm=graalvm-ce-19.1.0
-## set to your liking
+graal8=graalvm-ce-java8-19.3.0
+graal11=graalvm-ce-java11-19.3.0
 default=java8
 ```
 

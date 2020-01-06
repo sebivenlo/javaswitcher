@@ -33,7 +33,7 @@ default=java8
 * Add a few aliases to your personal aliases, either by adding to your `~/.bashrc` file or (better) to the `.bash_aliases` file
   you might already have.
 
-## How to add a java version installations
+## How to add an additional java versions
 
 You best install a new jdk in the simplest way possible: Download the zip or tar.gz from the
 download site, e.g. https://adoptopenjdk.net/ and unpack it below `/usr/lib/jvm`.
@@ -41,12 +41,8 @@ download site, e.g. https://adoptopenjdk.net/ and unpack it below `/usr/lib/jvm`
 For instance for  openjdk 13:
 
 ```
-cd /usr/lib/jvm
-sudo tar xf ~/Downloads/openjdk-13_linux-x64_bin.tar.gz
-cd
+( cd /usr/lib/jvm ; sudo tar xf ~/Downloads/openjdk-13_linux-x64_bin.tar.gz )
 ```
 
-Then if  unpacking results in a new directory: /usr/lib/jvm/`jdk-13`, use that
-to add a new config
-
-Then add the line `java13=jdk-13` to the config file.
+Then if unpacking results in a new directory like: /usr/lib/jvm/`jdk-13`, use that
+to add a new config; add the line `java13=jdk-13` to the javaversions.config file.

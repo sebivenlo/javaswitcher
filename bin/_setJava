@@ -60,22 +60,30 @@ else
   thisjava=${thisjava}
 fi
 
+OJAVA_BIN=JAVA_HOME/bin
+
 # echo "chosen : ${thisjava}" >&2
 NJAVA_HOME=${jvmdir}/${thisjava}
+np=''
 
-## edit path to use the new java_home
-if [ $(echo $PATH | grep -q /jvm/) ] ; then
-    # assume some java is in path
-    p=$(echo $OPATH | sed -e "s@${JAVA_HOME}/bin@${NJAVA_HOME}/bin@")
-else
-    # prepend
-    p="${NJAVA_HOME}/bin:${PATH}"
-fi
+# collect path in array, then parse each element
+IFS=':'  read -r -a par <<< "$PATH"
+set -- "${par[@]}"
+while (( $# )) ; do
+    p=$1; shift     
+    if [[ "$p" != "${jvmdir}/"* ]]; then
+	## allow in path if not containl /usr/lib/jvm
+	if [ -z "${np}" ]; then
+ 	    np="$p"
+	else
+	    np="${np}:$p"
+	fi
+    fi
+done
+
+# prepend new one
+np="${NJAVA_HOME}/bin:${np}"
 
 ## output modified env variables.
 echo export JAVA_HOME=$NJAVA_HOME
-echo export PATH=${p}
-## java 8 does not understand preview
-# if [ "${java8}" != "${thisjava}" ]; then
-#     echo export _JAVA_OPTIONS="'--enable-preview'"
-# fi
+echo export PATH=${np}

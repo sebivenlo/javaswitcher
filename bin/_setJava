@@ -60,8 +60,12 @@ else
   thisjava=${thisjava}
 fi
 
+OJAVA_BIN=JAVA_HOME/bin
+
 # echo "chosen : ${thisjava}" >&2
 NJAVA_HOME=${jvmdir}/${thisjava}
+np=''
+
 
 IFS=':' read -ra parray <<< "$PATH"
 np=""

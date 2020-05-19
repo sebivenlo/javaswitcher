@@ -63,21 +63,20 @@ fi
 # echo "chosen : ${thisjava}" >&2
 NJAVA_HOME=${jvmdir}/${thisjava}
 
-## edit path to use the new java_home
-if [ $(echo $PATH | grep -q /jvm/) ] ; then
-    # assume some java is in path
-    p=$(echo $OPATH | sed -e "s@${JAVA_HOME}/bin@${NJAVA_HOME}/bin@")
-else
-    # prepend
-    p="${NJAVA_HOME}/bin:${PATH}"
+IFS=':' read -ra parray <<< "$PATH"
+np=""
+sep=""
+if [ ! -z "${JAVA_HOME}" ]; then
+    for pp in "${parray[@]}"; do
+	if [ "${pp}" != "${JAVA_HOME}/bin" ]; then
+	    np="${np}${sep}${pp}"
+	    sep=":"
+	fi
+    done
 fi
+## edit path to use the new java_home
+np="${NJAVA_HOME}/bin:${np}"
 
 ## output modified env variables.
 echo export JAVA_HOME=$NJAVA_HOME
-echo export PATH=${p}
-## java 8 does not understand preview
-if [ "${java8}" = "${thisjava}" ]; then
-    echo export _JAVA_OPTIONS="'-Dawt.useSystemAAFontSettings=gasp'"
-else
-    echo export _JAVA_OPTIONS="'-Dawt.useSystemAAFontSettings=gasp --enable-preview'"
-fi
+echo export PATH=${np}

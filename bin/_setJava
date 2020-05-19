@@ -77,6 +77,8 @@ if [ ! -z "${JAVA_HOME}" ]; then
 	    sep=":"
 	fi
     done
+else
+    np=${PATH}
 fi
 ## edit path to use the new java_home
 np="${NJAVA_HOME}/bin:${np}"
